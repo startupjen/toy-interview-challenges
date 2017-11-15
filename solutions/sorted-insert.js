@@ -74,9 +74,18 @@ function sortedInsert(stack, element) {
 //third iteration
 function sortedInsert(stack, element) {
   let arr = [], loop = true
-  while ( loop ) {
+  while ( loop )
     stack.peek() >= element || stack.isEmpty() ? (stack.push(element), loop = false) : arr.unshift(stack.pop())
-  }
   arr.forEach( (val) => stack.push(val))
+  return stack
+}
+
+//another solution approach
+function sortedInsert (stack, element) {
+  const temp = []
+  while( stack.peek() <= element && !stack.isEmpty() )
+    temp.unshift(stack.pop())
+  stack.push(element)
+  temp.forEach( (val) => stack.push(val))  
   return stack
 }
