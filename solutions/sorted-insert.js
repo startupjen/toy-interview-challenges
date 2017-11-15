@@ -89,3 +89,11 @@ function sortedInsert (stack, element) {
   temp.forEach( (val) => stack.push(val))  
   return stack
 }
+
+//concising code when it takes away from initial purpose
+function sortedInsert (stack, element, temp = []) {
+  while( stack.peek() <= element && !stack.isEmpty() ) { temp.unshift(stack.pop()) }
+  stack.push(element)
+  temp.forEach( (val) => stack.push(val))  
+  return stack
+}
