@@ -75,7 +75,10 @@ function insertionSort (arr) {
 function insertionSort (arr) {
   for (let i=1;i<arr.length;i++) {
     for (let goBack=i-1;goBack>=-1;goBack--) {
-      if (goBack === -1 || arr[goBack].value < arr[i].value || (arr[goBack].value === arr[i].value && arr[goBack].order < arr[i].order) ) {
+      if (goBack === -1 || 
+          arr[goBack].value < arr[i].value || 
+          (arr[goBack].value === arr[i].value && arr[goBack].order < arr[i].order) 
+        ) {
         arr.splice(goBack+1, 0, arr.splice(i,1)[0])
         break
       }
@@ -83,3 +86,19 @@ function insertionSort (arr) {
   }
   return arr
 }
+
+//fifth ieration
+function insertionSort (arr) {
+  for (let i=1;i<arr.length;i++) {
+    for (var goBack=i-1;goBack>-1;goBack--) {
+      if ( arr[goBack].value < arr[i].value
+           || 
+           (arr[goBack].value === arr[i].value && arr[goBack].order < arr[i].order) 
+      ) { break }
+    }
+    arr.splice(goBack+1, 0, arr.splice(i,1)[0])
+  }
+  return arr
+}
+
+
